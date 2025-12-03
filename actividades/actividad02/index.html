@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de la Recta Numérica</title>
+
+    <!-- ESTILO GLOBAL DEL PORTAFOLIO -->
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <!-- ESTILO OPCIONAL DE ESTA ACTIVIDAD -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- MATHJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Visualizador de la Recta Numérica</h1>
+
+        <p><strong>Institución:</strong> Tecnológico de Software</p>
+        <p><strong>Materia:</strong> Fundamentos de Álgebra</p>
+        <p><strong>Docente:</strong> Jorge Javier Pedrozo Romero</p>
+        <p><strong>Alumno:</strong> Marco David Parera Flores</p>
+        <p><strong>Grupo:</strong> 1 A</p>
+        <hr>
+
+        <section class="input-section">
+            <h2>1. Ingresa Números a la Recta</h2>
+            <div class="input-group">
+                <input type="text" id="numberInput" placeholder="Ej: 5, -1/2, sqrt(2), pi">
+                <button onclick="addNumber()">Agregar Número</button>
+            </div>
+            <p class="instruction">
+                Puedes usar: números enteros, decimales, fracciones (1/2), π, e, y raíces (sqrt(3)).
+            </p>
+        </section>
+
+        <section class="display-section">
+            <h2>2. Recta Numérica Actual</h2>
+            <div class="canvas-container">
+                <canvas id="numberLineCanvas"></canvas>
+            </div>
+
+            <div id="numbers-list" class="numbers-list"></div>
+
+            <button class="clear-btn" onclick="clearNumbers()">Limpiar Recta</button>
+        </section>
+
+        <hr>
+
+        <section class="distance-section">
+            <h2>3. Calcular Distancia entre Puntos</h2>
+            <div class="distance-input">
+                <div class="custom-select" id="select-pointA">
+                    <div class="select-selected" id="pointA-selected">Punto A</div>
+                    <div class="select-items select-hide" id="pointA-items">
+                        <div class="select-item placeholder-item">Selecciona Punto A</div>
+                    </div>
+                </div>
+
+                <span class="distance-operator">a</span>
+
+                <div class="custom-select" id="select-pointB">
+                    <div class="select-selected" id="pointB-selected">Punto B</div>
+                    <div class="select-items select-hide" id="pointB-items">
+                        <div class="select-item placeholder-item">Selecciona Punto B</div>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="calculateDistance()">Calcular Distancia</button>
+
+            <div id="result" class="result-display">
+                Selecciona dos puntos de la lista para calcular la distancia.
+            </div>
+        </section>
+
+    </div>
+
+    <!-- SCRIPT DE ESTA ACTIVIDAD -->
+    <script src="script2.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simbólica Ecuaciones Lineales</title>
+
+    <!-- Estilos globales (lo moverás al CSS general del portafolio) -->
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <!-- Estilos propios de la actividad (si decides separarlo aún más) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Librería math.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculadora Simbólica de Ecuaciones</h1>
+
+        <section class="solver-section">
+            <h2>1. Solución de Ecuaciones de una Variable (x)</h2>
+            <p>Introduce la ecuación lineal para despejar <strong>x</strong> (ej: 2x + 3 = x + 8):</p>
+
+            <input type="text" id="ecuacion" value="2x + 3 = x + 8">
+
+            <button onclick="resolverEcuacionParseada()">Resolver</button>
+
+            <div id="resDespejeParseado" class="result-box"></div>
+            <div id="mensajeError" class="error-message"></div>
+        </section>
+
+        <hr>
+
+        <section class="solver-section">
+            <h2>2. Despeje Simbólico de Fórmulas</h2>
+            <p>Introduce cualquier fórmula matemática (ej: C = 5(F - 32)/9):</p>
+            
+            <div class="formula-input-container">
+                <label for="formulaLiteral">Fórmula:</label>
+                <input type="text" id="formulaLiteral" value="C = 5(F - 32)/9">
+            </div>
+            
+            <button onclick="procesarFormulaLiteral()">Generar Despejes Simbólicos</button>
+
+            <div id="resFormulaLiteral" class="result-box"></div>
+            <div id="mensajeErrorFormula" class="error-message"></div>
+        </section>
+
+        <footer style="text-align:center; margin-top:40px;">
+            <hr>
+            <p><strong>Autor:</strong> Marco David Parera Flores</p>
+            <p><strong>Materia:</strong> Fundamentos de Álgebra</p>
+            <p><strong>Grupo:</strong> 1A</p>
+            <p><strong>Fecha:</strong> 28 de octubre de 2025</p>
+            <p><strong>Docente:</strong> Jorge Javier Pedrozo Romero</p>
+        </footer>
+    </div>
+
+    <!-- Archivo JS separado -->
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Conversiones - Números Complejos</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Conversiones de Números Complejos</h1>
+        <p><strong>Institución:</strong> [Tecnológico de Software]</p>
+        <p><strong>Materia:</strong> [Fundamentos de algebra]</p>
+        <p><strong>Docente:</strong> [Jorge Javier Pedrozo Romero]</p>
+        <p><strong>Alumno:</strong> [Marco David Parera Flores]</p>
+        <p><strong>Grupo:</strong> [1 A ]</p>
+
+        <div class="instructions">
+            <strong>Instrucciones:</strong>
+            <ul>
+                <li>Ingresa un número complejo en cualquiera de las tres formas</li>
+                <li>Las otras formas se calcularán automáticamente</li>
+                <li>Los ángulos se expresan en radianes y en múltiplos de pi cuando es posible</li>
+                <li>Para ángulos puedes usar: pi, pi/2, pi/4, pi/3, pi/6, 2*pi, etc.</li>
+                <li>Para raíces cuadradas puedes usar: sqrt(2), sqrt(3), sqrt(5), etc.</li>
+                <li>Usa números decimales (ejemplo: 1.5, -2.7, 0.5)</li>
+            </ul>
+        </div>
+
+        <div class="form-section">
+            <h2>Forma Cartesiana: a + bi</h2>
+            <div class="input-group">
+                <label>z =</label>
+                <input type="text" id="real" placeholder="a (ej: sqrt(2))">
+                <span class="operator">+</span>
+                <input type="text" id="imag" placeholder="b (ej: sqrt(3))">
+                <span class="operator">i</span>
+            </div>
+            <div class="result" id="cartesian-result">Ingresa los valores arriba</div>
+        </div>
+
+        <div class="form-section">
+            <h2>Forma Polar: r(cos θ + i sin θ)</h2>
+            <div class="input-group">
+                <label>z =</label>
+                <input type="text" id="modulus" placeholder="r (ej: sqrt(2))">
+                <span class="operator">(cos</span>
+                <input type="text" id="angle" placeholder="θ (ej: pi/2)">
+                <span class="operator">+ i sin</span>
+                <input type="text" id="angle2" placeholder="θ" readonly style="background: #586394;">
+                <span class="operator">)</span>
+            </div>
+            <div class="result" id="polar-result">Ingresa los valores arriba</div>
+        </div>
+
+        <div class="form-section">
+            <h2>Forma Exponencial: re^(iθ)</h2>
+            <div class="input-group">
+                <label>z =</label>
+                <input type="text" id="exp-modulus" placeholder="r (ej: sqrt(5))">
+                <span class="operator">e^(i*</span>
+                <input type="text" id="exp-angle" placeholder="θ (ej: pi/4)">
+                <span class="operator">)</span>
+            </div>
+            <div class="result" id="exponential-result">Ingresa los valores arriba</div>
+        </div>
+
+        <button class="clear-btn" onclick="clearAll()">Limpiar Todo</button>
+    </div>
+</body>
+</html>

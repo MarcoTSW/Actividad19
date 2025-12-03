@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Variables</title>
+</head>
+<body>
+  <section class="info-alumno">
+      <h2>Datos del Alumno</h2>
+      <p><strong>Alumno:</strong> Marco David Parera Flores</p>
+      <p><strong>Docente:</strong> Jorge Javier Pedrozo Romero</p>
+      <p><strong>Escuela:</strong> Tecnológico de software</p>
+      <p><strong>Materia:</strong> Fundamentos de álgebra</p>
+      <p><strong>Grupo:</strong> 1A</p>
+  </section>
+
+  <div class="container">
+    <h1>Calculadora de Variables</h1>
+
+    <div class="input-section">
+      <div class="field-group">
+        <label for="variables">Variables:</label>
+        <textarea id="variables" placeholder="Ejemplo: feature_cost, w1 = 1, w2 = 2, w3 = 3"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="equations">Ecuaciones:</label>
+        <textarea id="equations" placeholder="Ejemplo: feature_cost = w1 * w2 + w3"></textarea>
+      </div>
+
+      <button id="calculate-btn" class="calculate-button">Calcular</button>
+    </div>
+
+    <div class="result-section">
+      <div class="info-card">
+        <h3>Resultado:</h3>
+        <div id="result" class="result-content">
+          Ingresa las variables y ecuaciones para ver el resultado
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.header {
+    background: #27374D;
+    color: white;
+    padding: 25px 0;
+    margin-bottom: 30px;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.lista-actividades {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
