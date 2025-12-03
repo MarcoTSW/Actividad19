@@ -1,86 +1,254 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizador de la Recta Numérica</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>División sintética</title>
 
-    <!-- ESTILO GLOBAL DEL PORTAFOLIO -->
-    <link rel="stylesheet" href="../../css/style.css">
+<style>
+/* ---------------------------
+   ESTILOS GENERALES
+---------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- ESTILO OPCIONAL DE ESTA ACTIVIDAD -->
-    <link rel="stylesheet" href="style.css">
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: linear-gradient(135deg, #c9d6ff, #e2e2e2);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
 
-    <!-- MATHJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+/* ---------------------------
+   TARJETA DE DATOS
+---------------------------- */
+.datos {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    max-width: 350px;
+    margin-right: 20px;
+    height: fit-content;
+    border-left: 5px solid #4b6cb7;
+}
+
+.datos p {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+/* ---------------------------
+   CONTENEDOR PRINCIPAL
+---------------------------- */
+.container {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* ---------------------------
+   TITULOS
+---------------------------- */
+h1 {
+    text-align: center;
+    color: #4b6cb7;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-style: italic;
+}
+
+/* ---------------------------
+   INPUTS Y LABELS
+---------------------------- */
+.input-section {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #222;
+    font-weight: 600;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #d0d4e4;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: #4b6cb7;
+    box-shadow: 0 0 5px #4b6cb777;
+    outline: none;
+}
+
+.help-text {
+    font-size: 0.85em;
+    margin-top: 5px;
+    color: #666;
+}
+
+/* ---------------------------
+   BOTÓN PRINCIPAL
+---------------------------- */
+button {
+    width: 100%;
+    padding: 15px;
+    background: #4b6cb7;
+    color: white;
+    border: none;
+    font-size: 1.1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    background: #3c5aa8;
+}
+
+button:active {
+    background: #324c8a;
+}
+
+/* ---------------------------
+   EJEMPLOS
+---------------------------- */
+.example {
+    background: #f5f7ff;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 0.9em;
+    border-left: 4px solid #4b6cb7;
+}
+
+/* ---------------------------
+   RESULTADOS
+---------------------------- */
+.result-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9fbff;
+    border-radius: 10px;
+    border: 1px solid #d9dff0;
+    display: none;
+}
+
+.result-section.show {
+    display: block;
+}
+
+.result-title {
+    font-weight: bold;
+    color: #3c5aa8;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+/* ---------------------------
+   TABLA DE PROCESO
+---------------------------- */
+.process-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.process-table td {
+    padding: 10px;
+    border: 1px solid #d9dff0;
+    text-align: center;
+}
+
+.process-table tr:first-child td {
+    background: #4b6cb7;
+    color: white;
+    font-weight: bold;
+}
+
+/* Resultado final */
+.final-result {
+    background: #eef2ff;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #d0d7f7;
+}
+
+.error {
+    background: #ffe0e0;
+    border: 1px solid #ffb5b5;
+    padding: 15px;
+    border-radius: 10px;
+    color: #b20000;
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Visualizador de la Recta Numérica</h1>
 
-        <p><strong>Institución:</strong> Tecnológico de Software</p>
-        <p><strong>Materia:</strong> Fundamentos de Álgebra</p>
-        <p><strong>Docente:</strong> Jorge Javier Pedrozo Romero</p>
-        <p><strong>Alumno:</strong> Marco David Parera Flores</p>
-        <p><strong>Grupo:</strong> 1 A</p>
-        <hr>
+<div class="datos">
+    <p><strong>Alumno:</strong> Marco David Parera Flores</p>
+    <p><strong>Materia:</strong> Fundamentos de Álgebra</p>
+    <p><strong>Docente:</strong> Jorge Javier Pedrozo Romero</p>
+    <p><strong>Escuela:</strong> Tecnológico de Software</p>
+    <p><strong>Grupo:</strong> 1A</p>
+</div>
 
-        <section class="input-section">
-            <h2>1. Ingresa Números a la Recta</h2>
-            <div class="input-group">
-                <input type="text" id="numberInput" placeholder="Ej: 5, -1/2, sqrt(2), pi">
-                <button onclick="addNumber()">Agregar Número</button>
-            </div>
-            <p class="instruction">
-                Puedes usar: números enteros, decimales, fracciones (1/2), π, e, y raíces (sqrt(3)).
-            </p>
-        </section>
+<div class="container">
+    <h1>División Sintética de Polinomios</h1>
+    <p class="subtitle">Soporta coeficientes y raíces reales y complejas</p>
 
-        <section class="display-section">
-            <h2>2. Recta Numérica Actual</h2>
-            <div class="canvas-container">
-                <canvas id="numberLineCanvas"></canvas>
-            </div>
+    <div class="input-section">
+        <label for="polinomio">Polinomio:</label>
+        <input type="text" id="polinomio" placeholder="Ejemplo: 5x^3 + 3x^2 + 2x + 1">
+        <p class="help-text">Ingresa el polinomio con formato algebraico</p>
 
-            <div id="numbers-list" class="numbers-list"></div>
-
-            <button class="clear-btn" onclick="clearNumbers()">Limpiar Recta</button>
-        </section>
-
-        <hr>
-
-        <section class="distance-section">
-            <h2>3. Calcular Distancia entre Puntos</h2>
-            <div class="distance-input">
-                <div class="custom-select" id="select-pointA">
-                    <div class="select-selected" id="pointA-selected">Punto A</div>
-                    <div class="select-items select-hide" id="pointA-items">
-                        <div class="select-item placeholder-item">Selecciona Punto A</div>
-                    </div>
-                </div>
-
-                <span class="distance-operator">a</span>
-
-                <div class="custom-select" id="select-pointB">
-                    <div class="select-selected" id="pointB-selected">Punto B</div>
-                    <div class="select-items select-hide" id="pointB-items">
-                        <div class="select-item placeholder-item">Selecciona Punto B</div>
-                    </div>
-                </div>
-            </div>
-
-            <button onclick="calculateDistance()">Calcular Distancia</button>
-
-            <div id="result" class="result-display">
-                Selecciona dos puntos de la lista para calcular la distancia.
-            </div>
-        </section>
-
+        <div class="example">
+            <strong>Ejemplos:</strong><br>
+            • 5x^3 + 3x^2 + 2x + 1<br>
+            • x^3 - 6x^2 + 11x - 6<br>
+            • 2x^2 + (3+2i)x + 1<br>
+            • x^4 - 1
+        </div>
     </div>
 
-    <!-- SCRIPT DE ESTA ACTIVIDAD -->
-    <script src="script2.js"></script>
+    <div class="input-section">
+        <label for="raiz">Raíz (divisor):</label>
+        <input type="text" id="raiz" placeholder="Ejemplo: 2 o 1+i">
+        <p class="help-text">Ingresa el valor de la raíz (puede ser complejo)</p>
+
+        <div class="example">
+            <strong>Ejemplos:</strong> 2, -3, 1+i, 2-3i
+        </div>
+    </div>
+
+    <button onclick="calcularDivision()">Calcular División Sintética</button>
+
+    <div id="resultado" class="result-section"></div>
+<script src="script2.js"></script>
+
+</div>
 
 </body>
 </html>
