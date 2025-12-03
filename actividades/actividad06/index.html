@@ -4,58 +4,219 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculadora de Expresiones Algebraicas</title>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #eef3fb;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    header {
+        background: #3949ab;
+        color: white;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .info-alumno {
+        background: white;
+        margin: 20px auto;
+        padding: 15px 20px;
+        width: 85%;
+        max-width: 900px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        line-height: 1.6;
+    }
+
+    .container {
+        width: 85%;
+        max-width: 1000px;
+        margin: 20px auto;
+        padding-bottom: 40px;
+    }
+
+    h2 {
+        color: #2c387e;
+    }
+
+    .converter-section {
+        background: white;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 90px;
+        padding: 12px;
+        border: 2px solid #b3c0f7;
+        border-radius: 8px;
+        resize: vertical;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    textarea:focus {
+        border-color: #3f51b5;
+        outline: none;
+    }
+
+    button {
+        background: #3f51b5;
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    button:hover {
+        background: #303f9f;
+    }
+
+    .result-card {
+        background: #f5f7ff;
+        border-left: 5px solid #3f51b5;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 8px;
+        display: none;
+    }
+
+    .output {
+        font-size: 18px;
+        font-weight: bold;
+        color: #1a237e;
+        margin-top: 10px;
+    }
+
+    .info-text {
+        font-size: 14px;
+        margin-top: 5px;
+        color: #555;
+    }
+
+    .divider {
+        width: 100%;
+        height: 3px;
+        background: #ddd;
+        margin: 30px 0;
+        border-radius: 2px;
+    }
+
+    .examples-section {
+        width: 85%;
+        max-width: 1000px;
+        margin: 20px auto 40px auto;
+        padding: 25px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .patterns-list {
+        margin-top: 15px;
+        padding: 10px;
+        background: #eef2ff;
+        border-radius: 8px;
+    }
+
+    footer {
+        background: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+        textarea {
+            min-height: 70px;
+        }
+
+        button {
+            font-size: 15px;
+        }
+
+        header h1 {
+            font-size: 22px;
+        }
+    }
+</style>
+
 </head>
+
 <body>
-    <header>
-        <h1>Conversor de Lenguaje</h1>
-        <p>Lenguaje Natural ⇌ Expresiones Algebraicas</p>
-        <p>Actividad #6 - Unidad II</p>
-    </header>
 
-    <div class="info-alumno">
-        <p><strong>Alumno:</strong> Marco David Parera Flores</p>
-        <p><strong>Docente:</strong> Jorge Javier Pedrozo Romero</p>
-        <p><strong>Materia:</strong> Fundamentos de Álgebra</p>
-        <p><strong>Grupo:</strong> 1A</p>
-    </div>
+<header>
+    <h1>Conversor de Lenguaje</h1>
+    <p>Lenguaje Natural ⇌ Expresiones Algebraicas</p>
+    <p>Actividad #6 - Unidad II</p>
+</header>
 
-    <div class="container">
-        <section class="converter-section">
-            <h2>De Lenguaje Natural a Algebraico</h2>
-            <div class="input-group">
-                <textarea id="natural-input" placeholder="Ejemplo: El doble de un número, aumentado en cinco"></textarea>
-                <button id="convert-to-algebraic-btn">Convertir a Algebraico</button>
-            </div>
-            <div id="natural-result" class="result-card" style="display:none;">
-                <h3>Expresión Algebraica:</h3>
-                <div id="natural-output" class="output"></div>
-                <div class="info-text">El resultado asume 'un número' como la variable 'x'.</div>
-            </div>
-        </section>
+<div class="info-alumno">
+    <p><strong>Alumno:</strong> Marco David Parera Flores</p>
+    <p><strong>Docente:</strong> Jorge Javier Pedrozo Romero</p>
+    <p><strong>Materia:</strong> Fundamentos de Álgebra</p>
+    <p><strong>Grupo:</strong> 1A</p>
+</div>
 
-        <div class="divider"></div>
+<div class="container">
 
-        <section class="converter-section">
-            <h2>De Expresión Algebraica a Natural</h2>
-            <div class="input-group">
-                <textarea id="algebraic-input" placeholder="Ejemplo: 2x + 5"></textarea>
-                <button id="convert-to-natural-btn">Convertir a Natural</button>
-            </div>
-            <div id="algebraic-result" class="result-card" style="display:none;">
-                <h3>Lenguaje Natural:</h3>
-                <div id="algebraic-output" class="output"></div>
-            </div>
-        </section>
-    </div>
-
-    <section class="examples-section">
-        <h2>Ejemplos de Patrones</h2>
-        <div id="patterns-list" class="patterns-list">
-            </div>
+    <section class="converter-section">
+        <h2>De Lenguaje Natural a Algebraico</h2>
+        <div class="input-group">
+            <textarea id="natural-input" placeholder="Ejemplo: El doble de un número, aumentado en cinco"></textarea>
+            <button id="convert-to-algebraic-btn">Convertir a Algebraico</button>
+        </div>
+        <div id="natural-result" class="result-card">
+            <h3>Expresión Algebraica:</h3>
+            <div id="natural-output" class="output"></div>
+            <div class="info-text">El resultado asume 'un número' como la variable 'x'.</div>
+        </div>
     </section>
 
-    <footer>
-        <p>Tecnológico de Software - Fundamentos de Álgebra &copy; 2025</p>
-    </footer>
+    <div class="divider"></div>
+
+    <section class="converter-section">
+        <h2>De Expresión Algebraica a Natural</h2>
+        <div class="input-group">
+            <textarea id="algebraic-input" placeholder="Ejemplo: 2x + 5"></textarea>
+            <button id="convert-to-natural-btn">Convertir a Natural</button>
+        </div>
+        <div id="algebraic-result" class="result-card">
+            <h3>Lenguaje Natural:</h3>
+            <div id="algebraic-output" class="output"></div>
+        </div>
+    </section>
+
+</div>
+
+<section class="examples-section">
+    <h2>Ejemplos de Patrones</h2>
+    <div id="patterns-list" class="patterns-list"></div>
+</section>
+
+<footer>
+    <p>Tecnológico de Software - Fundamentos de Álgebra © 2025</p>
+</footer>
+
 </body>
 </html>
