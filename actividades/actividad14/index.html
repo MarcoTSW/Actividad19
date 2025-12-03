@@ -5,13 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Simbólica Ecuaciones Lineales</title>
 
-    <!-- Estilos globales (lo moverás al CSS general del portafolio) -->
-    <link rel="stylesheet" href="../../css/style.css">
+    <!-- ======= CSS INTEGRADO AQUÍ ======= -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
 
-    <!-- Estilos propios de la actividad (si decides separarlo aún más) -->
-    <link rel="stylesheet" href="style.css">
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
 
-    <!-- Librería math.js -->
+        h1 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+
+        p {
+            color: #444;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,123,255,0.4);
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .result-box {
+            margin-top: 20px;
+            background: #e9f7ef;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 17px;
+            color: #155724;
+        }
+
+        .error-message {
+            margin-top: 15px;
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #721c24;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .formula-input-container {
+            margin: 10px 0 20px 0;
+        }
+
+        footer {
+            color: #333;
+            font-size: 14px;
+        }
+    </style>
+    <!-- ======= FIN DEL CSS INTEGRADO ======= -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
 </head>
 
@@ -58,8 +152,9 @@
         </footer>
     </div>
 
-    <!-- Archivo JS separado -->
+    
     <script src="script.js"></script>
 
 </body>
 </html>
+
