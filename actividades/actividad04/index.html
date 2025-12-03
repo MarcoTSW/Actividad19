@@ -4,6 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Conversiones - Números Complejos</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eef1f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            background: white;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2a3a5e;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 5px 0;
+            font-size: 15px;
+        }
+
+        .instructions {
+            background: #dfe6f3;
+            padding: 15px;
+            border-left: 5px solid #2a3a5e;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .instructions ul {
+            margin: 10px 0 0;
+            padding-left: 20px;
+        }
+
+        h2 {
+            color: #2a3a5e;
+        }
+
+        .form-section {
+            background: #f7f9fc;
+            border: 1px solid #c9d3e6;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .input-group input {
+            padding: 8px;
+            border: 1px solid #9aa6c4;
+            border-radius: 6px;
+            width: 130px;
+            font-size: 15px;
+        }
+
+        .operator {
+            font-weight: bold;
+            font-size: 16px;
+            color: #2a3a5e;
+        }
+
+        .result {
+            background: #e8ecf5;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            font-style: italic;
+        }
+
+        .clear-btn {
+            width: 100%;
+            background: #2a3a5e;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .clear-btn:hover {
+            background: #3b4e7d;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
