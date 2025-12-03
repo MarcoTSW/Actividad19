@@ -4,8 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Variables</title>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #eef3fb;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    .info-alumno {
+        background: #ffffff;
+        width: 85%;
+        max-width: 900px;
+        margin: 25px auto;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        line-height: 1.6;
+    }
+
+    .info-alumno h2 {
+        color: #2c387e;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        width: 85%;
+        max-width: 900px;
+        margin: 20px auto 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    h1 {
+        color: #2c387e;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .input-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .field-group label {
+        font-weight: bold;
+        color: #1a237e;
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 90px;
+        padding: 12px;
+        font-size: 16px;
+        border: 2px solid #b3c0f7;
+        border-radius: 8px;
+        resize: vertical;
+        box-sizing: border-box;
+        margin-top: 5px;
+        background: #f8f9ff;
+    }
+
+    textarea:focus {
+        border-color: #3f51b5;
+        outline: none;
+    }
+
+    .calculate-button {
+        background: #3f51b5;
+        color: white;
+        padding: 12px;
+        font-size: 17px;
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-top: 10px;
+    }
+
+    .calculate-button:hover {
+        background: #303f9f;
+    }
+
+    .result-section {
+        margin-top: 30px;
+    }
+
+    .info-card {
+        background: #f5f7ff;
+        padding: 20px;
+        border-radius: 10px;
+        border-left: 5px solid #3f51b5;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .info-card h3 {
+        margin-top: 0;
+        color: #1a237e;
+    }
+
+    .result-content {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    @media (max-width: 600px) {
+        textarea { min-height: 70px; }
+        h1 { font-size: 22px; }
+    }
+</style>
+
 </head>
 <body>
+
   <section class="info-alumno">
       <h2>Datos del Alumno</h2>
       <p><strong>Alumno:</strong> Marco David Parera Flores</p>
@@ -41,5 +160,6 @@
       </div>
     </div>
   </div>
+
 </body>
 </html>
